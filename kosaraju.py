@@ -56,7 +56,7 @@ def sort_vertices(graph):
     finish_time = 0
     order = {}
 
-    for _, vertex in graph.iteritems():
+    for vertex in graph.itervalues():
         if vertex.visited:
             continue
 
@@ -117,7 +117,7 @@ def compute_SCC(graph, order):
                     break
 
     assert_sum = 0
-    for _, SCC in SCCs.iteritems():
+    for SCC in SCCs.itervalues():
         assert_sum += len(SCC)
     assert assert_sum == len(graph)
     return SCCs
@@ -134,7 +134,7 @@ if __name__ == '__main__':
 
     # Reinitialize visited statuses.
     print 'Reinitializing graph...'
-    for _, vertex in graph.iteritems():
+    for vertex in graph.itervalues():
         vertex.visited = False
 
     # Second pass.
